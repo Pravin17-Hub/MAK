@@ -1,0 +1,309 @@
+'use client';
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { ChevronLeft, ChevronRight, Star, ChevronDown, HelpCircle, Scissors } from 'lucide-react';
+
+export default function Home() {
+  const { t, language } = useLanguage();
+  const [bridalIndex, setBridalIndex] = useState(0);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  // Bridal Showcase assets
+  const bridalDesigns = [
+    {
+      image: '/bridal-blouse.png',
+      title: language === 'ta' ? 'அரச திருமண ஆரி ஒர்க்' : 'Royal Wedding Aari Embroidery',
+      desc: language === 'ta' ? 'தங்கம் மற்றும் முத்து வேலைப்பாடுகளுடன் கூடிய தையல்.' : 'Handcrafted with fine gold thread, zardosi, and bead accents.',
+    },
+    {
+      image: '/designer-blouse.png',
+      title: language === 'ta' ? 'நவீன மணமகள் டிசைன்' : 'Modern Velvet Bridal Cut',
+      desc: language === 'ta' ? 'மெல்லிய கட்வொர்க் மற்றும் பைப்பிங் வேலைப்பாடு.' : 'Intricate cutwork back design with delicate pearl hangings.',
+    },
+    {
+      image: '/chudithar.png',
+      title: language === 'ta' ? 'அனார்கலி பட்டு வடிவமைப்பு' : 'Silk Anarkali Bridal Gown',
+      desc: language === 'ta' ? 'பாரம்பரிய மற்றும் நவீன தையலின் இணைவு.' : 'Perfect blend of traditional borders and modern cuts.',
+    },
+  ];
+
+  const nextBridal = () => {
+    setBridalIndex((prev) => (prev + 1) % bridalDesigns.length);
+  };
+
+  const prevBridal = () => {
+    setBridalIndex((prev) => (prev - 1 + bridalDesigns.length) % bridalDesigns.length);
+  };
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* 1. HERO SECTION */}
+      <section className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-purple-950">
+        {/* Background Image with Dark Vignette */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105"
+          style={{ backgroundImage: "url('/hero-bg.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/70 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(29,10,36,0.8)_100%)]" />
+
+        {/* Decorative Floating Scissor Outline */}
+        <motion.div
+          animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
+          className="absolute right-10 top-24 text-gold-500/10 hidden md:block"
+        >
+          <Scissors size={180} />
+        </motion.div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="space-y-4"
+          >
+            <span className="text-xs md:text-sm uppercase tracking-[0.35em] text-pink-200 font-semibold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
+              {t('hero.title')}
+            </span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-gold-100 font-light tracking-wide leading-tight">
+              {t('hero.tagline')}
+            </h1>
+            <p className="text-sm md:text-lg text-pink-100/70 font-sans max-w-xl mx-auto font-light tracking-wide">
+              {t('hero.subtitle')}
+            </p>
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4"
+          >
+            <Link
+              href="/contact"
+              className="btn-premium w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_25px_rgba(212,175,55,0.3)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer"
+            >
+              {t('hero.bookBtn')}
+            </Link>
+            <Link
+              href="/gallery"
+              className="btn-premium w-full sm:w-auto px-8 py-3.5 rounded-full border border-gold-500/40 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer"
+            >
+              {t('hero.viewDesigns')}
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Animated Stitching Line running across the bottom */}
+        <div className="absolute bottom-10 left-0 right-0 h-8 pointer-events-none">
+          <svg className="w-full h-full" viewBox="0 0 1440 40" preserveAspectRatio="none">
+            <path
+              d="M0,20 Q180,35 360,20 T720,20 T1080,20 T1440,20"
+              className="stitching-line"
+            />
+          </svg>
+        </div>
+      </section>
+
+      {/* 2. BRIDAL COLLECTION SHOWCASE */}
+      <section className="relative py-20 px-6 max-w-7xl mx-auto w-full overflow-hidden">
+        <div className="text-center space-y-3 mb-16">
+          <span className="text-xs uppercase tracking-[0.25em] text-purple-500 font-bold">
+            {language === 'ta' ? 'மணமகள் கலெக்ஷன்' : 'Bridal Showcase'}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-serif text-purple-900">
+            {language === 'ta' ? 'மணப்பெண் சிறப்புத் தொகுப்பு' : 'The Bridal Collections'}
+          </h2>
+          <div className="w-16 h-[1.5px] bg-purple-500/50 mx-auto mt-4" />
+        </div>
+
+        <div className="relative max-w-5xl mx-auto bg-purple-950 rounded-3xl overflow-hidden border border-gold-500/20 shadow-2xl flex flex-col md:flex-row min-h-[450px]">
+          {/* Carousel Image */}
+          <div className="md:w-1/2 relative h-[300px] md:h-auto overflow-hidden group">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={bridalIndex}
+                src={bridalDesigns[bridalIndex].image}
+                alt={bridalDesigns[bridalIndex].title}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6 }}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-950/80 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-purple-950/50" />
+          </div>
+
+          {/* Carousel Text & Controls */}
+          <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-between text-gold-100 z-10 relative">
+            <div className="space-y-4 my-auto">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-pink-200/80">
+                {language === 'ta' ? 'நேர்த்தியான தையல் வேலைப்பாடு' : 'Exclusive Craftsmanship'}
+              </span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={bridalIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-3"
+                >
+                  <h3 className="text-2xl md:text-3xl font-serif text-gold-500 font-light">
+                    {bridalDesigns[bridalIndex].title}
+                  </h3>
+                  <p className="text-sm font-sans text-pink-100/70 font-light leading-relaxed">
+                    {bridalDesigns[bridalIndex].desc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Navigation buttons */}
+            <div className="flex justify-between items-center pt-8 border-t border-gold-500/10 mt-6">
+              <div className="text-xs tracking-widest text-pink-100/40">
+                0{bridalIndex + 1} / 0{bridalDesigns.length}
+              </div>
+              <div className="flex space-x-3">
+                <button
+                  onClick={prevBridal}
+                  className="w-10 h-10 rounded-full border border-gold-500/20 flex items-center justify-center text-gold-500 hover:bg-gold-500 hover:text-purple-950 transition-all duration-300 cursor-pointer"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={nextBridal}
+                  className="w-10 h-10 rounded-full border border-gold-500/20 flex items-center justify-center text-gold-500 hover:bg-gold-500 hover:text-purple-950 transition-all duration-300 cursor-pointer"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. TESTIMONIALS */}
+      <section className="bg-purple-900/15 py-20 border-y border-gold-500/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center space-y-3 mb-16">
+            <span className="text-xs uppercase tracking-[0.25em] text-purple-500 font-bold">
+              {t('testimonials.title')}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-serif text-purple-900">
+              {t('testimonials.subtitle')}
+            </h2>
+            <div className="w-16 h-[1.5px] bg-purple-500/50 mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {(t('testimonials.items') as any[]).map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                className="bg-white border border-purple-500/10 p-8 rounded-3xl card-glow shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                {/* Stars */}
+                <div className="flex text-gold-500 space-x-1 mb-4">
+                  {[...Array(item.stars)].map((_, i) => (
+                    <Star key={i} size={16} className="fill-gold-500" />
+                  ))}
+                </div>
+                {/* Quote */}
+                <p className="text-sm font-sans text-purple-950 italic leading-relaxed font-light mb-6">
+                  "{item.comment}"
+                </p>
+                {/* Author */}
+                <div className="flex items-center space-x-3 border-t border-purple-500/10 pt-4">
+                  <div className="w-8 h-8 rounded-full bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-xs font-bold text-purple-800">
+                    {item.name[0]}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-serif text-purple-950 font-semibold">
+                      {item.name}
+                    </h4>
+                    <p className="text-[10px] uppercase tracking-widest text-purple-700/70 font-medium">
+                      {item.role}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. FAQ SECTION */}
+      <section className="py-20 px-6 max-w-4xl mx-auto w-full">
+        <div className="text-center space-y-3 mb-16">
+          <span className="text-xs uppercase tracking-[0.25em] text-purple-500 font-bold">
+            {language === 'ta' ? 'கேள்விகள்' : 'FAQ'}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-serif text-purple-900">
+            {t('faq.title')}
+          </h2>
+          <p className="text-xs text-purple-700/70 uppercase tracking-widest font-medium">{t('faq.subtitle')}</p>
+          <div className="w-16 h-[1.5px] bg-purple-500/30 mx-auto mt-4" />
+        </div>
+
+        <div className="space-y-4">
+          {(t('faq.items') as any[]).map((item, idx) => {
+            const isOpen = activeFaq === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-purple-950 border border-gold-500/20 rounded-2xl overflow-hidden shadow-md hover:border-gold-500/40 transition-all duration-300"
+              >
+                <button
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full px-6 py-5 text-left flex justify-between items-center text-gold-100 hover:text-gold-500 transition-colors duration-300 font-serif text-base md:text-lg focus:outline-none cursor-pointer"
+                >
+                  <span className="flex items-center space-x-3">
+                    <HelpCircle size={18} className="text-gold-500/80 shrink-0" />
+                    <span>{item.q}</span>
+                  </span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-gold-500/70"
+                  >
+                    <ChevronDown size={18} />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    >
+                      <div className="px-6 pb-6 pt-3 text-sm font-sans text-pink-100/90 leading-relaxed font-light border-t border-gold-500/10 whitespace-pre-line bg-purple-900/40">
+                        {item.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  );
+}
