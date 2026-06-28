@@ -151,25 +151,46 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] md:h-[95vh] flex items-center justify-center overflow-hidden bg-purple-950 pt-20">
+      <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-purple-950 pt-28 pb-16">
+        {/* Tailor's drafting grid background */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #d4af37 1px, transparent 1px),
+              linear-gradient(to bottom, #d4af37 1px, transparent 1px)
+            `,
+            backgroundSize: '35px 35px',
+          }}
+        />
+
+        {/* Double gold layout borders framing the Hero */}
+        <div className="absolute inset-4 border border-gold-500/10 pointer-events-none rounded-3xl" />
+        <div className="absolute inset-6 border border-gold-500/5 pointer-events-none rounded-[22px]" />
+
+        {/* Horizontal Tape Measure Ruler scrolling at the top */}
+        <div className="absolute top-[90px] inset-x-6 h-8 bg-purple-950/40 border-y border-gold-500/10 flex items-center overflow-hidden pointer-events-none select-none z-10">
+          <div className="animate-scroll-measure whitespace-nowrap text-[9px] text-gold-500/25 font-mono flex">
+            {[...Array(2)].map((_, loopIdx) => (
+              <div key={loopIdx} className="flex shrink-0">
+                {[...Array(40)].map((_, idx) => (
+                  <span key={idx} className="inline-flex items-center gap-1.5 px-4 border-r border-gold-500/10 py-1">
+                    <span>{idx + 1}</span>
+                    <span className="text-[6px] tracking-widest">| | | | | | | | |</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Background Gradients & Ambient Glows */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900/50 to-purple-950" />
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Decorative Golden Mandala Vector background */}
-        <div className="absolute -left-20 -top-20 w-[450px] h-[450px] text-gold-500/5 pointer-events-none select-none opacity-30">
-          <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="0.5">
-            <circle cx="50" cy="50" r="45" />
-            <circle cx="50" cy="50" r="40" strokeDasharray="1 1" />
-            <circle cx="50" cy="50" r="30" />
-            <path d="M50,5 L50,95 M5,50 L95,50 M18,18 L82,82 M18,82 L82,18" />
-          </svg>
-        </div>
-
         {/* Scattered Premium Design Elements / Background Tailoring Symbols */}
-        {/* Sparkles & Stars */}
-        <div className="absolute top-[15%] left-[15%] text-gold-500/20 text-2xl select-none pointer-events-none animate-pulse">✦</div>
+        <div className="absolute top-[18%] left-[12%] text-gold-500/20 text-2xl select-none pointer-events-none animate-pulse">✦</div>
         <div className="absolute top-[22%] left-[45%] text-gold-500/10 text-lg select-none pointer-events-none">✧</div>
         <div className="absolute bottom-[35%] left-[28%] text-gold-500/15 text-xl select-none pointer-events-none animate-pulse">✦</div>
         <div className="absolute top-[18%] right-[38%] text-gold-500/20 text-xl select-none pointer-events-none">✦</div>
@@ -177,26 +198,16 @@ export default function Home() {
         <div className="absolute top-[32%] left-[8%] text-gold-500/10 text-xl select-none pointer-events-none">✦</div>
 
         {/* Needle Outline Icon */}
-        <div className="absolute top-[48%] left-[6%] text-gold-500/10 select-none pointer-events-none rotate-[45deg] scale-90">
-          <svg viewBox="0 0 24 24" className="w-16 h-16 fill-none stroke-current" strokeWidth="1">
+        <div className="absolute top-[48%] left-[4%] text-gold-500/10 select-none pointer-events-none rotate-[45deg] scale-90">
+          <svg viewBox="0 0 24 24" className="w-16 h-16 fill-none stroke-current" strokeWidth="0.8">
             <line x1="2" y1="22" x2="18" y2="6" />
             <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
           </svg>
         </div>
 
-        {/* Scissors Outline Icon */}
-        <div className="absolute top-[18%] right-[42%] text-gold-500/10 select-none pointer-events-none rotate-[-30deg] scale-75">
-          <svg viewBox="0 0 24 24" className="w-12 h-12 fill-none stroke-current" strokeWidth="1">
-            <circle cx="6" cy="18" r="3" />
-            <circle cx="18" cy="18" r="3" />
-            <line x1="8.5" y1="15.5" x2="18" y2="6" />
-            <line x1="15.5" y1="15.5" x2="6" y2="6" />
-          </svg>
-        </div>
-
         {/* Button Outline Icon */}
         <div className="absolute bottom-[28%] left-[45%] text-gold-500/10 select-none pointer-events-none scale-75">
-          <svg viewBox="0 0 24 24" className="w-10 h-10 fill-none stroke-current" strokeWidth="1">
+          <svg viewBox="0 0 24 24" className="w-10 h-10 fill-none stroke-current" strokeWidth="0.8">
             <circle cx="12" cy="12" r="9" />
             <circle cx="9" cy="9" r="1" fill="currentColor" />
             <circle cx="15" cy="9" r="1" fill="currentColor" />
@@ -207,99 +218,136 @@ export default function Home() {
 
         {/* Hanger Outline Icon */}
         <div className="absolute top-[15%] right-[15%] text-gold-500/10 select-none pointer-events-none scale-75">
-          <svg viewBox="0 0 24 24" className="w-16 h-16 fill-none stroke-current" strokeWidth="1">
+          <svg viewBox="0 0 24 24" className="w-16 h-16 fill-none stroke-current" strokeWidth="0.8">
             <path d="M12 2a3 3 0 0 1 3 3c0 .5-.1 1-.4 1.4L22 12H2L9.4 6.4C9.1 6 9 5.5 9 5a3 3 0 0 1 3-3z M2 12h20v2H2z" />
           </svg>
         </div>
 
         {/* Asymmetrical Split-Screen Layout */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center py-12 md:py-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-10 w-full grid grid-cols-1 md:grid-cols-12 gap-16 items-center py-12 md:py-0">
           
-          {/* Left Text Column */}
-          <div className="md:col-span-7 text-left space-y-8 flex flex-col justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="space-y-4"
-            >
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-pink-200 font-semibold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
-                {t('hero.title')}
-              </span>
-              
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gold-100 font-extrabold tracking-wide leading-[1.1]">
-                {language === 'ta' ? (
-                  <>
-                    பிரத்யேக <span className="italic text-gold-500 font-black font-serif">தையல்</span> & <br />
-                    ஆரி <span className="text-gold-100 font-black font-serif">எம்பிராய்டரி</span>
-                  </>
-                ) : (
-                  <>
-                    Bespoke <span className="italic text-gold-500 font-black font-serif">Tailoring</span> & <br />
-                    Intricate <span className="text-gold-100 font-black font-serif">Embroidery</span>
-                  </>
-                )}
-              </h1>
-              
-              <p className="text-sm md:text-base text-pink-100/70 font-sans max-w-xl font-light tracking-wide leading-relaxed">
-                {t('hero.subtitle')}
-              </p>
-            </motion.div>
+          {/* Left Text Column - Housed inside a luxury catalog card */}
+          <div className="md:col-span-7 text-left flex flex-col justify-center">
+            <div className="p-8 md:p-12 rounded-[32px] border border-gold-500/15 bg-purple-900/20 backdrop-blur-[2px] relative space-y-8">
+              {/* Corner Ornaments */}
+              <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-gold-500/30 rounded-tl-md" />
+              <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-gold-500/30 rounded-tr-md" />
+              <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-gold-500/30 rounded-bl-md" />
+              <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-gold-500/30 rounded-br-md" />
 
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
-            >
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_25px_rgba(212,175,55,0.3)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer text-center"
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className="space-y-5"
               >
-                {t('hero.bookBtn')}
-              </Link>
-              <Link
-                href="/gallery"
-                className="w-full sm:w-auto px-8 py-4 rounded-full border border-gold-500/40 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer text-center"
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-pink-200 font-semibold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
+                  ✦ {t('hero.title')} ✦
+                </span>
+                
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gold-100 font-extrabold tracking-wide leading-[1.1]">
+                  {language === 'ta' ? (
+                    <>
+                      பிரத்யேக <span className="italic text-gold-500 font-black font-serif">தையல்</span> & <br />
+                      ஆரி <span className="text-gold-100 font-black font-serif">எம்பிராய்டரி</span>
+                    </>
+                  ) : (
+                    <>
+                      Bespoke <span className="italic text-gold-500 font-black font-serif">Tailoring</span> & <br />
+                      Intricate <span className="text-gold-100 font-black font-serif">Embroidery</span>
+                    </>
+                  )}
+                </h1>
+                
+                <p className="text-sm md:text-base text-pink-100/70 font-sans max-w-xl font-light tracking-wide leading-relaxed">
+                  {t('hero.subtitle')}
+                </p>
+              </motion.div>
+
+              {/* Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="flex flex-col sm:flex-row gap-4 pt-2"
               >
-                {t('hero.viewDesigns')}
-              </Link>
-            </motion.div>
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_25px_rgba(212,175,55,0.3)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer text-center"
+                >
+                  {t('hero.bookBtn')}
+                </Link>
+                <Link
+                  href="/gallery"
+                  className="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-gold-500/40 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer text-center"
+                >
+                  {t('hero.viewDesigns')}
+                </Link>
+              </motion.div>
+            </div>
           </div>
 
-          {/* Right Column: Square Frame showing the tailoring-vector.png (gold scissors) */}
-          <div className="md:col-span-5 flex justify-center items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
-              className="relative w-full max-w-sm aspect-square"
-            >
-              {/* Golden ambient glow under the square box */}
-              <div className="absolute inset-0 bg-gold-500/10 blur-[60px] rounded-full pointer-events-none" />
+          {/* Right Column: Stacked luxury tailoring collage (replaces blank empty space) */}
+          <div className="md:col-span-5 flex justify-center items-center h-[460px] relative mt-12 md:mt-0">
+            {/* Background Glow */}
+            <div className="absolute inset-0 bg-gold-500/10 blur-[80px] rounded-full pointer-events-none" />
 
-              {/* Luxury Gold Bordered Square Image Frame */}
-              <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-gold-500/30 shadow-[0_20px_50px_rgba(29,10,36,0.6)] bg-purple-950">
+            {/* Collage Container */}
+            <div className="relative w-full max-w-sm h-[380px]">
+              
+              {/* Card 1: Base - Fabric Cutting / Blueprints */}
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: -8, zIndex: 30 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="absolute top-4 left-4 w-60 h-60 rounded-2xl overflow-hidden border border-gold-500/20 shadow-xl bg-purple-900 rotate-[-6deg] z-10"
+              >
+                <img
+                  src="/fabric-cutting.png"
+                  alt="Pattern Blueprints"
+                  className="w-full h-full object-cover opacity-60"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-transparent pointer-events-none" />
+                <div className="absolute inset-2 border border-gold-500/10 rounded-xl pointer-events-none" />
+              </motion.div>
+
+              {/* Card 2: Middle/Main - The Golden Scissors Square Box */}
+              <motion.div
+                whileHover={{ scale: 1.03, rotate: 5, zIndex: 30 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="absolute top-10 left-8 w-68 h-68 rounded-3xl overflow-hidden border-2 border-gold-500/30 shadow-[0_15px_35px_rgba(0,0,0,0.5)] bg-purple-950 rotate-[3deg] z-20"
+              >
                 <img
                   src="/tailoring-vector.png"
-                  alt="Luxury Tailoring Scissors Exhibit"
-                  className="w-full h-full object-cover transition-transform duration-[8000ms] hover:scale-105"
+                  alt="Luxury Scissors Tooling"
+                  className="w-full h-full object-cover"
                   loading="eager"
                   decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/20 to-transparent pointer-events-none" />
-                {/* Gold inner frame border */}
                 <div className="absolute inset-3 border border-gold-500/20 rounded-2xl pointer-events-none" />
-              </div>
+              </motion.div>
 
-              {/* Decorative stitching thread loops outline */}
-              <div className="absolute -right-6 -bottom-6 w-20 h-20 text-gold-500/20 pointer-events-none hidden sm:block">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.5">
-                  <path d="M10,10 C40,30 20,70 90,90 C80,60 60,30 30,10" strokeDasharray="3 3" />
-                </svg>
-              </div>
-            </motion.div>
+              {/* Card 3: Top/Foreground Overlay - Intricate Embroidery Close-up */}
+              <motion.div
+                whileHover={{ scale: 1.08, rotate: -2, zIndex: 30 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="absolute bottom-4 right-0 w-36 h-36 rounded-2xl overflow-hidden border border-gold-500/40 shadow-2xl bg-purple-950 rotate-[-4deg] z-25"
+              >
+                <img
+                  src="/embroidery-zoom.png"
+                  alt="Detail Embroidery Aari Work"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-transparent pointer-events-none" />
+                <div className="absolute inset-2 border border-gold-500/30 rounded-xl pointer-events-none" />
+                <div className="absolute top-2 left-2 bg-gold-500/90 text-purple-950 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
+                  Detail
+                </div>
+              </motion.div>
+
+            </div>
           </div>
 
         </div>
