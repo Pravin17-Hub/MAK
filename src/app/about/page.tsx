@@ -96,7 +96,7 @@ export default function About() {
             <div className="relative w-full max-w-md aspect-[4/5] rounded-[30px] overflow-hidden border border-gold-500/30 shadow-[0_15px_40px_rgba(29,10,36,0.15)] group">
               <div className="absolute inset-0 bg-purple-950/10 z-10 transition-colors duration-300 group-hover:bg-purple-950/0" />
               <img
-                src="/tailoring-shop.jpg"
+                src="/stitching-diagram.png"
                 alt="MAK Ladies Tailoring Craft"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -130,7 +130,7 @@ export default function About() {
             >
               <div className="relative w-full max-w-sm aspect-[4/5] rounded-[30px] overflow-hidden border-2 border-gold-500 shadow-[0_20px_50px_rgba(29,10,36,0.3)] bg-purple-950">
                 <img
-                  src="/founder-ai.png"
+                  src="/founder.jpg"
                   alt="Founder Mrs. R. Rajalakshmi"
                   className="w-full h-full object-cover"
                 />
