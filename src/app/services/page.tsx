@@ -41,11 +41,7 @@ export default function Services() {
     {
       key: 'bridal',
       views: [
-        { image: '/bridal-blouse.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
-        { image: '/bridal-blouse.png', style: { transform: 'scale(1.9) translateY(18px)' }, label: 'Neck Detail', labelTa: 'கழுத்து பகுதி' },
-        { image: '/designer-blouse.png', label: 'Front Styling', labelTa: 'முன்பக்க வடிவமைப்பு' },
-        { image: '/bridal-blouse.png', style: { transform: 'scale(1.9) translate(-10px, -18px)' }, label: 'Sleeve Work', labelTa: 'கை எம்பிராய்டரி' },
-        { image: '/chudithar.png', label: 'Stitch Detail', labelTa: 'தையல் விவரம்' },
+        { image: '/bridal-showcase.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
       ],
       title: t('services.items.bridal.title'),
       desc: t('services.items.bridal.desc'),
@@ -54,11 +50,7 @@ export default function Services() {
     {
       key: 'designer',
       views: [
-        { image: '/designer-blouse.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
-        { image: '/designer-blouse.png', style: { transform: 'scale(1.9) translateY(18px)' }, label: 'Neck Cut', labelTa: 'கழுத்து வடிவமைப்பு' },
-        { image: '/bridal-blouse.png', label: 'Embroidery Detail', labelTa: 'அலங்கார வேலைப்பாடு' },
-        { image: '/designer-blouse.png', style: { transform: 'scale(1.9) translate(10px, -12px)' }, label: 'Sleeve Detail', labelTa: 'கை வடிவமைப்பு' },
-        { image: '/chudithar.png', label: 'Stitch Quality', labelTa: 'தையல் தரம்' },
+        { image: '/designer-blouse-alt.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
       ],
       title: t('services.items.designer.title'),
       desc: t('services.items.designer.desc'),
@@ -67,11 +59,7 @@ export default function Services() {
     {
       key: 'chudithar',
       views: [
-        { image: '/chudithar.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
-        { image: '/chudithar.png', style: { transform: 'scale(1.8) translateY(12px)' }, label: 'Collar Style', labelTa: 'கழுத்துப் பட்டை' },
-        { image: '/designer-blouse.png', label: 'Contrast Design', labelTa: 'மாறுபட்ட வடிவமைப்பு' },
-        { image: '/chudithar.png', style: { transform: 'scale(1.8) translate(12px, -18px)' }, label: 'Sleeve Cut', labelTa: 'கை தையல்' },
-        { image: '/bridal-blouse.png', label: 'Border Detail', labelTa: 'பார்டர் வடிவமைப்பு' },
+        { image: '/chudithar-stitching.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
       ],
       title: t('services.items.chudithar.title'),
       desc: t('services.items.chudithar.desc'),
@@ -80,11 +68,7 @@ export default function Services() {
     {
       key: 'pattuPavada',
       views: [
-        { image: '/pattu-pavadai.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
-        { image: '/pattu-pavadai.png', style: { transform: 'scale(1.9) translateY(24px)' }, label: 'Silk Border', labelTa: 'பட்டு பார்டர்' },
-        { image: '/kids-dress.png', label: 'Langa Frock Style', labelTa: 'பாவாடை பேட்டர்ன்' },
-        { image: '/pattu-pavadai.png', style: { transform: 'scale(1.8) translate(-12px, -18px)' }, label: 'Puff Sleeve', labelTa: 'பஃப் கை' },
-        { image: '/bridal-blouse.png', label: 'Border Trim', labelTa: 'பார்டர் ஒர்க்' },
+        { image: '/pattu-pavadai-alt.png', label: 'Full View', labelTa: 'முழு தோற்றம்' },
       ],
       title: t('services.items.pattuPavada.title'),
       desc: t('services.items.pattuPavada.desc'),
@@ -93,11 +77,7 @@ export default function Services() {
     {
       key: 'kids',
       views: [
-        { image: '/kids-dress.png', label: 'Full Frock', labelTa: 'முழு ஃபிராக்' },
-        { image: '/kids-dress.png', style: { transform: 'scale(1.8) translateY(15px)' }, label: 'Frock Neck', labelTa: 'ஃபிராக் கழுத்து' },
-        { image: '/pattu-pavadai.png', label: 'Traditional Frock', labelTa: 'பாரம்பரிய சட்டை' },
-        { image: '/kids-dress.png', style: { transform: 'scale(1.8) translate(18px, -18px)' }, label: 'Skirt Trim', labelTa: 'கீழ் பகுதி' },
-        { image: '/designer-blouse.png', label: 'Stitch Quality', labelTa: 'தையல் தரம்' },
+        { image: '/kids-dress-alt.png', label: 'Full Frock', labelTa: 'முழு ஃபிராக்' },
       ],
       title: t('services.items.kids.title'),
       desc: t('services.items.kids.desc'),
@@ -106,11 +86,7 @@ export default function Services() {
     {
       key: 'alteration',
       views: [
-        { image: '/alteration.png', label: 'Needle View', labelTa: 'தையல் ஊசி தோற்றம்' },
-        { image: '/alteration.png', style: { transform: 'scale(1.8) translateY(15px)' }, label: 'Machine Stitch', labelTa: 'இயந்திர தையல்' },
-        { image: '/chudithar.png', label: 'Fitting Adjust', labelTa: 'அளவு சரிசெய்தல்' },
-        { image: '/alteration.png', style: { transform: 'scale(1.8) translate(-15px, -12px)' }, label: 'Gold Thread', labelTa: 'தங்க நூல் வேலை' },
-        { image: '/designer-blouse.png', label: 'Piping Finish', labelTa: 'பைப்பிங் வேலைப்பாடு' },
+        { image: '/alteration-alt.png', label: 'Machine Stitch', labelTa: 'தையல் தரம்' },
       ],
       title: t('services.items.alteration.title'),
       desc: t('services.items.alteration.desc'),

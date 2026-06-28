@@ -21,17 +21,17 @@ export default function Home() {
   // Bridal Showcase assets
   const bridalDesigns = [
     {
-      image: '/bridal-blouse.png',
+      image: '/bridal-showcase.png',
       title: language === 'ta' ? 'அரச திருமண ஆரி ஒர்க்' : 'Royal Wedding Aari Embroidery',
       desc: language === 'ta' ? 'தங்கம் மற்றும் முத்து வேலைப்பாடுகளுடன் கூடிய தையல்.' : 'Handcrafted with fine gold thread, zardosi, and bead accents.',
     },
     {
-      image: '/designer-blouse.png',
+      image: '/designer-blouse-alt.png',
       title: language === 'ta' ? 'நவீன மணமகள் டிசைன்' : 'Modern Velvet Bridal Cut',
       desc: language === 'ta' ? 'மெல்லிய கட்வொர்க் மற்றும் பைப்பிங் வேலைப்பாடு.' : 'Intricate cutwork back design with delicate pearl hangings.',
     },
     {
-      image: '/chudithar.png',
+      image: '/chudithar-stitching.png',
       title: language === 'ta' ? 'அனார்கலி பட்டு வடிவமைப்பு' : 'Silk Anarkali Bridal Gown',
       desc: language === 'ta' ? 'பாரம்பரிய மற்றும் நவீன தையலின் இணைவு.' : 'Perfect blend of traditional borders and modern cuts.',
     },
@@ -240,7 +240,7 @@ export default function Home() {
               {/* Luxury Arched Window Frame */}
               <div className="relative w-full h-full rounded-t-full overflow-hidden border-2 border-gold-500/30 shadow-[0_20px_50px_rgba(29,10,36,0.6)]">
                 <img
-                  src="/hero-bg.png"
+                  src="/fabric-cutting.png"
                   alt="Luxury Tailoring Exhibit"
                   className="w-full h-full object-cover transition-transform duration-[8000ms] hover:scale-105"
                 />
@@ -255,7 +255,7 @@ export default function Home() {
                 className="absolute -bottom-6 -left-8 w-1/2 aspect-square rounded-3xl overflow-hidden border-2 border-gold-500/20 shadow-2xl hidden sm:block bg-purple-950"
               >
                 <img
-                  src="/bridal-blouse.png"
+                  src="/embroidery-zoom.png"
                   alt="Bridal Blouse Workmanship"
                   className="w-full h-full object-cover"
                 />

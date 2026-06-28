@@ -24,7 +24,7 @@ export default function Gallery() {
   const galleryItems: GalleryItem[] = [
     {
       id: 1,
-      image: '/bridal-blouse.png',
+      image: '/bridal-showcase.png',
       category: 'bridal',
       titleEn: 'Royal Wedding Zardosi Blouse',
       titleTa: 'அரச திருமண ஜர்தோசி பிளவுஸ்',
@@ -32,7 +32,7 @@ export default function Gallery() {
     },
     {
       id: 2,
-      image: '/designer-blouse.png',
+      image: '/designer-blouse-alt.png',
       category: 'designer',
       titleEn: 'Modern Halter Cut Blouse',
       titleTa: 'நவீன கழுத்து டிசைனர் பிளவுஸ்',
@@ -40,7 +40,7 @@ export default function Gallery() {
     },
     {
       id: 3,
-      image: '/chudithar.png',
+      image: '/chudithar-stitching.png',
       category: 'chudithar',
       titleEn: 'Pastel Green Kurti Suite',
       titleTa: 'பச்சை நிற எம்பிராய்டரி சுடிதார்',
@@ -48,7 +48,7 @@ export default function Gallery() {
     },
     {
       id: 4,
-      image: '/kids-dress.png',
+      image: '/kids-dress-alt.png',
       category: 'kids',
       titleEn: 'Kids Designer Frock',
       titleTa: 'குழந்தைகள் பட்டு ஃபிராக்',
@@ -56,7 +56,7 @@ export default function Gallery() {
     },
     {
       id: 5,
-      image: '/pattu-pavadai.png',
+      image: '/pattu-pavadai-alt.png',
       category: 'kids',
       titleEn: 'Traditional Kids Silk Pavadai',
       titleTa: 'குழந்தைகள் பட்டு பாவாடை சட்டை',
@@ -64,7 +64,7 @@ export default function Gallery() {
     },
     {
       id: 6,
-      image: '/alteration.png',
+      image: '/alteration-alt.png',
       category: 'designer',
       titleEn: 'Bespoke Custom Alterations',
       titleTa: 'பிரத்யேக ஆல்டரேஷன் தையல்',

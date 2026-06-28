@@ -13,8 +13,8 @@ export const translations = {
     },
     hero: {
       title: 'MAK Ladies Tailoring',
-      subtitle: 'Crafting Elegance with Every Stitch',
-      tagline: 'Perfect Stitching for Every Occasion',
+      subtitle: 'From precise pattern drafting to master handcrafted Aari & Zardosi work, we shape every fabric to celebrate you.',
+      tagline: 'Bespoke Tailoring & Intricate Embroidery',
       bookBtn: 'Contact Us',
       viewDesigns: 'View Designs',
       experience: 'Years of Trust',
@@ -209,8 +209,8 @@ export const translations = {
     },
     hero: {
       title: 'MAK லேடீஸ் டெய்லரிங்',
-      subtitle: 'ஒவ்வொரு தையலிலும் அழகை உருவாக்குகிறோம்',
-      tagline: 'ஒவ்வொரு நிகழ்ச்சிக்கும் அழகான தையல்',
+      subtitle: 'துல்லியமான பேட்டர்ன் வரைதல் முதல் நேர்த்தியான ஆரி வேலைப்பாடுகள் வரை, உங்களின் கனவு ஆடைகளை கச்சிதமாக வடிவமைத்துத் தருகிறோம்.',
+      tagline: 'பிரத்யேக தையல் & ஆரி எம்பிராய்டரி',
       bookBtn: 'தொடர்பு கொள்ள',
       viewDesigns: 'டிசைன்களைப் பார்க்க',
       experience: 'நம்பிக்கையான ஆண்டுகள்',
