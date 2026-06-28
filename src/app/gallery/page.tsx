@@ -77,7 +77,7 @@ export default function Gallery() {
     // 3. Chudithars
     {
       id: 7,
-      image: '/chudithar-stitching.png',
+      image: '/chudithar-yellow.png',
       category: 'chudithar',
       titleEn: 'Pastel Green Kurti Suite',
       titleTa: 'பச்சை நிற எம்பிராய்டரி சுடிதார்',
@@ -103,7 +103,7 @@ export default function Gallery() {
     // 4. Kids Wear
     {
       id: 10,
-      image: '/pattu-pavadai-alt.png',
+      image: '/kids-pattu.png',
       category: 'kids',
       titleEn: 'Traditional Kids Silk Pavadai',
       titleTa: 'குழந்தைகள் பட்டு பாவாடை சட்டை',
