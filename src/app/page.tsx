@@ -167,6 +167,51 @@ export default function Home() {
           </svg>
         </div>
 
+        {/* Scattered Premium Design Elements / Background Tailoring Symbols */}
+        {/* Sparkles & Stars */}
+        <div className="absolute top-[15%] left-[15%] text-gold-500/20 text-2xl select-none pointer-events-none animate-pulse">✦</div>
+        <div className="absolute top-[22%] left-[45%] text-gold-500/10 text-lg select-none pointer-events-none">✧</div>
+        <div className="absolute bottom-[35%] left-[28%] text-gold-500/15 text-xl select-none pointer-events-none animate-pulse">✦</div>
+        <div className="absolute top-[18%] right-[38%] text-gold-500/20 text-xl select-none pointer-events-none">✦</div>
+        <div className="absolute bottom-[20%] right-[32%] text-gold-500/15 text-2xl select-none pointer-events-none animate-pulse">✧</div>
+        <div className="absolute top-[32%] left-[8%] text-gold-500/10 text-xl select-none pointer-events-none">✦</div>
+
+        {/* Needle Outline Icon */}
+        <div className="absolute top-[48%] left-[6%] text-gold-500/10 select-none pointer-events-none rotate-[45deg] scale-90">
+          <svg viewBox="0 0 24 24" className="w-16 h-16 fill-none stroke-current" strokeWidth="1">
+            <line x1="2" y1="22" x2="18" y2="6" />
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+          </svg>
+        </div>
+
+        {/* Scissors Outline Icon */}
+        <div className="absolute top-[18%] right-[42%] text-gold-500/10 select-none pointer-events-none rotate-[-30deg] scale-75">
+          <svg viewBox="0 0 24 24" className="w-12 h-12 fill-none stroke-current" strokeWidth="1">
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="18" cy="18" r="3" />
+            <line x1="8.5" y1="15.5" x2="18" y2="6" />
+            <line x1="15.5" y1="15.5" x2="6" y2="6" />
+          </svg>
+        </div>
+
+        {/* Button Outline Icon */}
+        <div className="absolute bottom-[28%] left-[45%] text-gold-500/10 select-none pointer-events-none scale-75">
+          <svg viewBox="0 0 24 24" className="w-10 h-10 fill-none stroke-current" strokeWidth="1">
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="9" cy="9" r="1" fill="currentColor" />
+            <circle cx="15" cy="9" r="1" fill="currentColor" />
+            <circle cx="9" cy="15" r="1" fill="currentColor" />
+            <circle cx="15" cy="15" r="1" fill="currentColor" />
+          </svg>
+        </div>
+
+        {/* Hanger Outline Icon */}
+        <div className="absolute top-[15%] right-[15%] text-gold-500/10 select-none pointer-events-none scale-75">
+          <svg viewBox="0 0 24 24" className="w-16 h-16 fill-none stroke-current" strokeWidth="1">
+            <path d="M12 2a3 3 0 0 1 3 3c0 .5-.1 1-.4 1.4L22 12H2L9.4 6.4C9.1 6 9 5.5 9 5a3 3 0 0 1 3-3z M2 12h20v2H2z" />
+          </svg>
+        </div>
+
         {/* Asymmetrical Split-Screen Layout */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center py-12 md:py-0">
           
@@ -182,16 +227,16 @@ export default function Home() {
                 {t('hero.title')}
               </span>
               
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gold-100 font-light tracking-wide leading-[1.1]">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gold-100 font-extrabold tracking-wide leading-[1.1]">
                 {language === 'ta' ? (
                   <>
-                    பிரத்யேக <span className="italic text-gold-500 font-normal font-serif">தையல்</span> & <br />
-                    ஆரி <span className="text-gold-100 font-light font-serif">எம்பிராய்டரி</span>
+                    பிரத்யேக <span className="italic text-gold-500 font-black font-serif">தையல்</span> & <br />
+                    ஆரி <span className="text-gold-100 font-black font-serif">எம்பிராய்டரி</span>
                   </>
                 ) : (
                   <>
-                    Bespoke <span className="italic text-gold-500 font-normal font-serif">Tailoring</span> & <br />
-                    Intricate <span className="text-gold-100 font-light font-serif">Embroidery</span>
+                    Bespoke <span className="italic text-gold-500 font-black font-serif">Tailoring</span> & <br />
+                    Intricate <span className="text-gold-100 font-black font-serif">Embroidery</span>
                   </>
                 )}
               </h1>

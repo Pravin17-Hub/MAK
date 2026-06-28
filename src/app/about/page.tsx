@@ -130,7 +130,7 @@ export default function About() {
             >
               <div className="relative w-full max-w-sm aspect-[4/5] rounded-[30px] overflow-hidden border-2 border-gold-500 shadow-[0_20px_50px_rgba(29,10,36,0.3)] bg-purple-950">
                 <img
-                  src="/founder.jpg"
+                  src="/founder-ai.png"
                   alt="Founder Mrs. R. Rajalakshmi"
                   className="w-full h-full object-cover"
                 />
