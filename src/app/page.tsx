@@ -151,64 +151,137 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-purple-950">
-        {/* Background Image with Parallax Zoom */}
-        <motion.div
-          style={{ y: heroBgY, scale: heroBgScale, backgroundImage: "url('/hero-bg.png')" }}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/70 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(29,10,36,0.8)_100%)]" />
+      <section className="relative min-h-[90vh] md:h-[95vh] flex items-center justify-center overflow-hidden bg-purple-950 pt-20">
+        {/* Background Gradients & Ambient Glows */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900/60 to-purple-950" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Decorative Floating Scissor Outline */}
-        <motion.div
-          animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-          className="absolute right-10 top-24 text-gold-500/10 hidden md:block"
-        >
-          <Scissors size={180} />
-        </motion.div>
+        {/* Decorative Golden Mandala Vector background */}
+        <div className="absolute -left-20 -top-20 w-[450px] h-[450px] text-gold-500/5 pointer-events-none select-none opacity-40">
+          <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="0.5">
+            <circle cx="50" cy="50" r="45" />
+            <circle cx="50" cy="50" r="40" strokeDasharray="1 1" />
+            <circle cx="50" cy="50" r="30" />
+            <path d="M50,5 L50,95 M5,50 L95,50 M18,18 L82,82 M18,82 L82,18" />
+            {[...Array(12)].map((_, i) => (
+              <circle key={i} cx={50 + 35 * Math.cos((i * Math.PI) / 6)} cy={50 + 35 * Math.sin((i * Math.PI) / 6)} r="2" fill="currentColor" />
+            ))}
+          </svg>
+        </div>
 
-        {/* Hero Content with Scroll Fade */}
-        <motion.div
-          style={{ y: heroTextY, opacity: heroTextOpacity }}
-          className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6"
-        >
-          <div className="space-y-4">
-            <span className="text-xs md:text-sm uppercase tracking-[0.35em] text-pink-200 font-semibold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
-              {t('hero.title')}
-            </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-gold-100 font-light tracking-wide leading-tight">
-              {t('hero.tagline')}
-            </h1>
-            <p className="text-sm md:text-lg text-pink-100/70 font-sans max-w-xl mx-auto font-light tracking-wide">
-              {t('hero.subtitle')}
-            </p>
+        {/* Asymmetrical Layout grid */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center py-12 md:py-0">
+          
+          {/* Left Text Column */}
+          <div className="md:col-span-7 text-left space-y-8 flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="space-y-4"
+            >
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-pink-200 font-semibold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
+                {t('hero.title')}
+              </span>
+              
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gold-100 font-light tracking-wide leading-[1.1]">
+                {language === 'ta' ? (
+                  <>
+                    ஒவ்வொரு தருணத்திற்கும் <br />
+                    <span className="italic text-gold-500 font-medium">கச்சிதமான தையல்</span>
+                  </>
+                ) : (
+                  <>
+                    Perfect Stitching <br />
+                    <span className="italic text-gold-500 font-medium">for Every Occasion</span>
+                  </>
+                )}
+              </h1>
+              
+              <p className="text-sm md:text-base text-pink-100/70 font-sans max-w-xl font-light tracking-wide leading-relaxed">
+                {t('hero.subtitle')}
+              </p>
+            </motion.div>
+
+            {/* Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 pt-2"
+            >
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_25px_rgba(212,175,55,0.3)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer text-center"
+              >
+                {t('hero.bookBtn')}
+              </Link>
+              <Link
+                href="/gallery"
+                className="w-full sm:w-auto px-8 py-4 rounded-full border border-gold-500/40 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer text-center"
+              >
+                {t('hero.viewDesigns')}
+              </Link>
+            </motion.div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-            <Link
-              href="/contact"
-              className="btn-premium w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_25px_rgba(212,175,55,0.3)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer"
+          {/* Right Image Frame Column */}
+          <div className="md:col-span-5 flex justify-center items-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
+              className="relative w-full max-w-sm aspect-[4/5]"
             >
-              {t('hero.bookBtn')}
-            </Link>
-            <Link
-              href="/gallery"
-              className="btn-premium w-full sm:w-auto px-8 py-3.5 rounded-full border border-gold-500/40 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer"
-            >
-              {t('hero.viewDesigns')}
-            </Link>
-          </div>
-        </motion.div>
+              {/* Golden ambient blur under the arch */}
+              <div className="absolute inset-0 bg-gold-500/10 blur-[80px] rounded-full pointer-events-none" />
 
-        {/* Animated Stitching Line running across the bottom */}
-        <div className="absolute bottom-10 left-0 right-0 h-8 pointer-events-none">
-          <svg className="w-full h-full" viewBox="0 0 1440 40" preserveAspectRatio="none">
+              {/* Luxury Arched Window Frame */}
+              <div className="relative w-full h-full rounded-t-full overflow-hidden border-2 border-gold-500/30 shadow-[0_20px_50px_rgba(29,10,36,0.6)]">
+                <img
+                  src="/hero-bg.png"
+                  alt="Luxury Tailoring Exhibit"
+                  className="w-full h-full object-cover transition-transform duration-[8000ms] hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/20 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Overlapping Bridal Sample Frame */}
+              <motion.div
+                initial={{ opacity: 0, x: -40, y: 40 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ delay: 0.7, duration: 1, ease: 'easeOut' }}
+                className="absolute -bottom-6 -left-8 w-1/2 aspect-square rounded-3xl overflow-hidden border-2 border-gold-500/20 shadow-2xl hidden sm:block bg-purple-950"
+              >
+                <img
+                  src="/bridal-blouse.png"
+                  alt="Bridal Blouse Workmanship"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+
+              {/* Decorative embroidery thread loops outline */}
+              <div className="absolute -right-8 -bottom-8 w-24 h-24 text-gold-500/20 pointer-events-none hidden sm:block">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.5">
+                  <path d="M10,10 C40,30 20,70 90,90 C80,60 60,30 30,10" strokeDasharray="3 3" />
+                </svg>
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
+
+        {/* Stitching divider line at the bottom */}
+        <div className="absolute bottom-4 left-0 right-0 h-4 pointer-events-none">
+          <svg className="w-full h-full" viewBox="0 0 1440 20" preserveAspectRatio="none">
             <path
-              d="M0,20 Q180,35 360,20 T720,20 T1080,20 T1440,20"
-              className="stitching-line"
+              d="M0,10 Q360,15 720,10 T1440,10"
+              stroke="#d4af37"
+              strokeWidth="1.5"
+              strokeDasharray="6 6"
+              fill="none"
+              opacity="0.3"
             />
           </svg>
         </div>

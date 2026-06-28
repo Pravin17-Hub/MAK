@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface LogoProps {
   className?: string;
@@ -14,59 +15,72 @@ export default function Logo({ className = '', size = 180 }: LogoProps) {
       width={size}
       height={size / 3}
       className={`transition-colors duration-300 ${className}`}
-      fill="currentColor"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* Left Wing (3 curved layered lines) */}
-      <path
-        d="M 65 38 C 30 32 12 18 2 26 C 10 35 30 40 65 40 Z"
-        opacity="0.85"
+      {/* Embroidery Hoop / Stitching Circle */}
+      <circle
+        cx="120"
+        cy="40"
+        r="32"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeDasharray="4 3"
+        opacity="0.4"
       />
-      <path
-        d="M 65 38 C 35 42 20 32 10 37 C 18 46 38 46 65 43 Z"
-        opacity="0.95"
-      />
-      <path
-        d="M 65 38 C 40 48 28 46 18 49 C 28 55 48 52 65 46 Z"
-      />
-
-      {/* Right Wing (3 curved layered lines) */}
-      <path
-        d="M 175 38 C 210 32 228 18 238 26 C 230 35 210 40 175 40 Z"
-        opacity="0.85"
-      />
-      <path
-        d="M 175 38 C 205 42 220 32 230 37 C 222 46 202 46 175 43 Z"
-        opacity="0.95"
-      />
-      <path
-        d="M 175 38 C 200 48 212 46 222 49 C 212 55 192 52 175 46 Z"
+      <circle
+        cx="120"
+        cy="40"
+        r="35"
+        stroke="currentColor"
+        strokeWidth="0.75"
+        opacity="0.2"
       />
 
-      {/* Stylized text "M A K" with a small crown shape on top of 'A' */}
+      {/* Sewing Needle running diagonally through the hoop */}
+      <motion.line
+        x1="78"
+        y1="54"
+        x2="162"
+        y2="26"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1.2 }}
+      />
+      {/* Needle eye */}
+      <circle cx="157" cy="27.6" r="0.75" fill="currentColor" />
+
+      {/* Brand Text */}
       <text
         x="120"
-        y="50"
+        y="47"
         fontFamily="var(--font-serif)"
-        fontSize="30"
-        fontWeight="800"
+        fontSize="24"
+        fontWeight="700"
         textAnchor="middle"
         letterSpacing="6"
+        fill="currentColor"
       >
         MAK
       </text>
 
-      {/* Crown over the letter A */}
-      <path
-        d="M 110 18 Q 120 22 130 18 Q 120 12 110 18"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <circle cx="110" cy="18" r="1.5" />
-      <circle cx="120" cy="12" r="1.5" />
-      <circle cx="130" cy="18" r="1.5" />
+      {/* Subtitle */}
+      <text
+        x="125"
+        y="60"
+        fontFamily="var(--font-sans)"
+        fontSize="7.5"
+        fontWeight="500"
+        textAnchor="middle"
+        letterSpacing="3"
+        fill="currentColor"
+        opacity="0.7"
+      >
+        LADIES TAILORING
+      </text>
     </svg>
   );
 }
