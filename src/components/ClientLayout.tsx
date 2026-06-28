@@ -7,6 +7,7 @@ import FabricBackground from './FabricBackground';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import ScrollToTop from './ScrollToTop';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,6 +20,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       </main>
       <Footer />
       <WhatsAppButton />
+      <ScrollToTop />
     </LanguageProvider>
   );
 }

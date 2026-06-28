@@ -123,7 +123,7 @@ export default function Gallery() {
       </section>
 
       {/* Gallery Filter Tabs */}
-      <div className="max-w-7xl mx-auto px-6 w-full flex flex-wrap justify-center gap-2 mb-12">
+      <div className="max-w-7xl mx-auto px-6 w-full flex flex-wrap justify-center gap-3 mb-12">
         {(
           [
             { key: 'all', label: t('gallery.filterAll') },
@@ -132,19 +132,29 @@ export default function Gallery() {
             { key: 'chudithar', label: t('gallery.filterChudithars') },
             { key: 'kids', label: t('gallery.filterKids') },
           ] as { key: CategoryFilter; label: string }[]
-        ).map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setFilter(tab.key)}
-            className={`px-5 py-2.5 rounded-full border text-xs uppercase tracking-widest transition-all duration-300 font-medium cursor-pointer ${
-              filter === tab.key
-                ? 'bg-gold-500 border-gold-500 text-purple-950 font-bold shadow-lg shadow-gold-500/15'
-                : 'bg-purple-900/10 border-gold-500/10 text-purple-900 hover:border-gold-500/40'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
+        ).map((tab) => {
+          const isActive = filter === tab.key;
+          return (
+            <button
+              key={tab.key}
+              onClick={() => setFilter(tab.key)}
+              className="relative px-5 py-2.5 rounded-full border border-gold-500/10 text-xs uppercase tracking-widest font-medium cursor-pointer transition-colors duration-300 overflow-hidden"
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="activeGalleryTab"
+                  className="absolute inset-0 bg-gold-500"
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                />
+              )}
+              <span className={`relative z-10 transition-colors duration-300 ${
+                isActive ? 'text-purple-950 font-bold' : 'text-purple-900 hover:text-purple-950'
+              }`}>
+                {tab.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* Masonry Portfolio Grid */}

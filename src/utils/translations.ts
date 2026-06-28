@@ -176,6 +176,26 @@ export const translations = {
       rights: 'All rights reserved.',
       by: 'Designed for MAK Tailoring',
     },
+    process: {
+      title: 'Our Crafting Journey',
+      subtitle: 'How We Stitch Your Dream Fit',
+      step1: {
+        title: 'Design & Measure',
+        desc: 'Consultation to capture your vision and take precise, professional measurements.',
+      },
+      step2: {
+        title: 'Bespoke Drafting',
+        desc: 'Plotting custom paper patterns modeled exactly for your unique body shape.',
+      },
+      step3: {
+        title: 'Master Stitching',
+        desc: 'Intricate stitching, lining assembly, and luxury hand embroidery (Aari/Zardosi).',
+      },
+      step4: {
+        title: 'Inspection & Fitting',
+        desc: 'A strict multi-point check followed by final adjustments for a flawless drape.',
+      },
+    },
   },
   ta: {
     nav: {
@@ -351,6 +371,26 @@ export const translations = {
       tagline: 'ஒவ்வொரு தையலிலும் அழகை உருவாக்குகிறோம்',
       rights: 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
       by: 'MAK டெய்லரிங்கிற்காக உருவாக்கப்பட்டது',
+    },
+    process: {
+      title: 'உருவாக்கும் முறை',
+      subtitle: 'கச்சிதமான ஆடை எவ்வாறு வடிவமைக்கப்படுகிறது',
+      step1: {
+        title: 'அளவு & வடிவமைப்பு',
+        desc: 'உங்களின் விருப்பங்களை கேட்டு அறிந்து, கச்சிதமான உடல் அளவுகளை துல்லியமாக எடுத்தல்.',
+      },
+      step2: {
+        title: 'பேட்டர்ன் வரைதல்',
+        desc: 'உடல் வடிவத்திற்கு ஏற்ப பிரத்யேக தையல் வரைபடங்களை உருவாக்குதல்.',
+      },
+      step3: {
+        title: 'நேர்த்தியான தையல்',
+        desc: 'கைத்திறன் மிக்க தையல் கலைஞர்களால் ஆரி ஒர்க் மற்றும் ஜர்தோசி வேலைப்பாடு செய்தல்.',
+      },
+      step4: {
+        title: 'தர சோதனை & பொருத்தம்',
+        desc: 'பல கட்ட தர சோதனைகளுக்கு பின், உங்களுக்கான இறுதி பொருத்தத்தை சரிபார்த்து தருதல்.',
+      },
     },
   },
 };

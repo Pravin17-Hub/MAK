@@ -158,16 +158,38 @@ export default function Services() {
 
       {/* Services Grid */}
       <section className="max-w-7xl mx-auto px-6 py-8 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.12,
+              },
+            },
+          }}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {servicesData.map((service, idx) => {
             const primaryImage = service.views[0].image;
 
             return (
               <motion.div
                 key={service.key}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, y: 35 },
+                  show: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.6,
+                      ease: [0.215, 0.61, 0.355, 1.0],
+                    },
+                  },
+                }}
+                whileHover={{ y: -6 }}
                 className="group bg-purple-950 border border-gold-500/15 rounded-3xl overflow-hidden shadow-lg flex flex-col justify-between hover:border-gold-500/30 transition-all duration-500 card-glow"
               >
                 {/* Service Card Image Frame */}
@@ -176,7 +198,7 @@ export default function Services() {
                   <img
                     src={primaryImage}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-all duration-500 scale-[1.03]"
+                    className="w-full h-full object-cover transition-all duration-700 scale-[1.03] group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-950/90 via-purple-950/20 to-transparent pointer-events-none" />
 
@@ -207,7 +229,7 @@ export default function Services() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </section>
 
       {/* Price Enquiry Modal Popup */}
