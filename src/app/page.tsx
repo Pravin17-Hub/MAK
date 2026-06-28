@@ -226,15 +226,48 @@ export default function Home() {
         {/* Asymmetrical Split-Screen Layout */}
         <div className="relative z-10 max-w-7xl mx-auto px-10 w-full grid grid-cols-1 md:grid-cols-12 gap-16 items-center py-12 md:py-0">
           
-          {/* Left Text Column - Housed inside a luxury catalog card */}
+          {/* Left Text Column - Housed inside a premium luxury framed card */}
           <div className="md:col-span-7 text-left flex flex-col justify-center">
-            <div className="p-8 md:p-12 rounded-[32px] border border-gold-500/15 bg-purple-900/20 backdrop-blur-[2px] relative space-y-8">
-              {/* Corner Ornaments */}
-              <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-gold-500/30 rounded-tl-md" />
-              <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-gold-500/30 rounded-tr-md" />
-              <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-gold-500/30 rounded-bl-md" />
-              <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-gold-500/30 rounded-br-md" />
+            <div className="p-10 md:p-14 rounded-[36px] border-2 border-gold-500/20 bg-purple-950/40 backdrop-blur-md relative space-y-8 shadow-[0_15px_40px_rgba(0,0,0,0.4)]">
+              {/* Luxury SVG Corner Flourishes */}
+              {/* Top-Left */}
+              <div className="absolute top-4 left-4 w-12 h-12 text-gold-500/35 pointer-events-none">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.8">
+                  <path d="M 5,95 L 5,5 Q 5,5 95,5" strokeLinecap="round" />
+                  <path d="M 15,85 Q 15,15 85,15" strokeLinecap="round" />
+                  <circle cx="5" cy="5" r="2.5" fill="currentColor" />
+                  <path d="M 25,25 Q 30,35 40,25 Q 35,30 25,25" fill="currentColor" />
+                </svg>
+              </div>
+              {/* Top-Right */}
+              <div className="absolute top-4 right-4 w-12 h-12 text-gold-500/35 pointer-events-none rotate-90">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.8">
+                  <path d="M 5,95 L 5,5 Q 5,5 95,5" strokeLinecap="round" />
+                  <path d="M 15,85 Q 15,15 85,15" strokeLinecap="round" />
+                  <circle cx="5" cy="5" r="2.5" fill="currentColor" />
+                  <path d="M 25,25 Q 30,35 40,25 Q 35,30 25,25" fill="currentColor" />
+                </svg>
+              </div>
+              {/* Bottom-Left */}
+              <div className="absolute bottom-4 left-4 w-12 h-12 text-gold-500/35 pointer-events-none -rotate-90">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.8">
+                  <path d="M 5,95 L 5,5 Q 5,5 95,5" strokeLinecap="round" />
+                  <path d="M 15,85 Q 15,15 85,15" strokeLinecap="round" />
+                  <circle cx="5" cy="5" r="2.5" fill="currentColor" />
+                  <path d="M 25,25 Q 30,35 40,25 Q 35,30 25,25" fill="currentColor" />
+                </svg>
+              </div>
+              {/* Bottom-Right */}
+              <div className="absolute bottom-4 right-4 w-12 h-12 text-gold-500/35 pointer-events-none rotate-180">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.8">
+                  <path d="M 5,95 L 5,5 Q 5,5 95,5" strokeLinecap="round" />
+                  <path d="M 15,85 Q 15,15 85,15" strokeLinecap="round" />
+                  <circle cx="5" cy="5" r="2.5" fill="currentColor" />
+                  <path d="M 25,25 Q 30,35 40,25 Q 35,30 25,25" fill="currentColor" />
+                </svg>
+              </div>
 
+              {/* Text elements */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -287,67 +320,30 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column: Stacked luxury tailoring collage (replaces blank empty space) */}
-          <div className="md:col-span-5 flex justify-center items-center h-[460px] relative mt-12 md:mt-0">
+          {/* Right Column: Single luxury tailoring scissors image box */}
+          <div className="md:col-span-5 flex justify-center items-center relative mt-12 md:mt-0">
             {/* Background Glow */}
             <div className="absolute inset-0 bg-gold-500/10 blur-[80px] rounded-full pointer-events-none" />
 
-            {/* Collage Container */}
-            <div className="relative w-full max-w-sm h-[380px]">
-              
-              {/* Card 1: Base - Fabric Cutting / Blueprints */}
-              <motion.div
-                whileHover={{ scale: 1.05, rotate: -8, zIndex: 30 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="absolute top-4 left-4 w-60 h-60 rounded-2xl overflow-hidden border border-gold-500/20 shadow-xl bg-purple-900 rotate-[-6deg] z-10"
-              >
-                <img
-                  src="/fabric-cutting.png"
-                  alt="Pattern Blueprints"
-                  className="w-full h-full object-cover opacity-60"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-transparent pointer-events-none" />
-                <div className="absolute inset-2 border border-gold-500/10 rounded-xl pointer-events-none" />
-              </motion.div>
-
-              {/* Card 2: Middle/Main - The Golden Scissors Square Box */}
-              <motion.div
-                whileHover={{ scale: 1.03, rotate: 5, zIndex: 30 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="absolute top-10 left-8 w-68 h-68 rounded-3xl overflow-hidden border-2 border-gold-500/30 shadow-[0_15px_35px_rgba(0,0,0,0.5)] bg-purple-950 rotate-[3deg] z-20"
-              >
-                <img
-                  src="/tailoring-vector.png"
-                  alt="Luxury Scissors Tooling"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/20 to-transparent pointer-events-none" />
-                <div className="absolute inset-3 border border-gold-500/20 rounded-2xl pointer-events-none" />
-              </motion.div>
-
-              {/* Card 3: Top/Foreground Overlay - Intricate Embroidery Close-up */}
-              <motion.div
-                whileHover={{ scale: 1.08, rotate: -2, zIndex: 30 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="absolute bottom-4 right-0 w-36 h-36 rounded-2xl overflow-hidden border border-gold-500/40 shadow-2xl bg-purple-950 rotate-[-4deg] z-25"
-              >
-                <img
-                  src="/embroidery-zoom.png"
-                  alt="Detail Embroidery Aari Work"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-transparent pointer-events-none" />
-                <div className="absolute inset-2 border border-gold-500/30 rounded-xl pointer-events-none" />
-                <div className="absolute top-2 left-2 bg-gold-500/90 text-purple-950 text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
-                  Detail
-                </div>
-              </motion.div>
-
-            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
+              whileHover={{ scale: 1.02 }}
+              className="relative w-full max-w-sm aspect-square rounded-[36px] overflow-hidden border-2 border-gold-500/30 shadow-[0_20px_50px_rgba(29,10,36,0.6)] bg-purple-950"
+            >
+              <img
+                src="/tailoring-vector.png"
+                alt="Luxury Scissors Tooling"
+                className="w-full h-full object-cover transition-transform duration-[8000ms] hover:scale-105"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/20 to-transparent pointer-events-none" />
+              {/* Gold double frame borders */}
+              <div className="absolute inset-3 border border-gold-500/20 rounded-[28px] pointer-events-none" />
+              <div className="absolute inset-4 border border-gold-500/10 rounded-[24px] pointer-events-none" />
+            </motion.div>
           </div>
 
         </div>
