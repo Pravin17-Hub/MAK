@@ -30,17 +30,23 @@ export default function About() {
   return (
     <div className="flex flex-col min-h-screen pt-24 pb-20">
       {/* 1. Header Hero Area */}
-      <section className="relative py-16 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#d4af37_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-[0.05]" />
-        
+      <section className="relative py-28 text-center overflow-hidden bg-purple-950">
+        {/* AI Generated boutique background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: "url('/about-hero-ai.png')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/70 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(29,10,36,0.6)_100%)]" />
+
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-4">
-          <span className="text-xs uppercase tracking-[0.3em] text-purple-800 font-bold bg-purple-900/5 px-4 py-1.5 rounded-full border border-purple-500/20">
+          <span className="text-xs uppercase tracking-[0.3em] text-pink-200 font-bold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
             {t('about.title')}
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif text-purple-900 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-serif text-gold-100 leading-tight font-light">
             {t('about.subtitle')}
           </h1>
-          <div className="w-16 h-[1.5px] bg-purple-500/50 mx-auto mt-4" />
+          <div className="w-16 h-[1.5px] bg-gold-500/50 mx-auto mt-4" />
         </div>
       </section>
 

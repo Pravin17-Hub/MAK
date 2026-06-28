@@ -153,123 +153,147 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] md:h-[95vh] flex items-center justify-center overflow-hidden bg-purple-950 pt-20">
         {/* Background Gradients & Ambient Glows */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900/60 to-purple-950" />
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900/40 to-purple-950" />
+        
+        {/* AI-Generated Tailoring Vector Background Watermark */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay"
+          style={{ backgroundImage: "url('/tailoring-vector.png')" }}
+        />
+        
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
 
         {/* Decorative Golden Mandala Vector background */}
-        <div className="absolute -left-20 -top-20 w-[450px] h-[450px] text-gold-500/5 pointer-events-none select-none opacity-40">
+        <div className="absolute -left-20 -top-20 w-[450px] h-[450px] text-gold-500/5 pointer-events-none select-none opacity-20">
           <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="0.5">
             <circle cx="50" cy="50" r="45" />
             <circle cx="50" cy="50" r="40" strokeDasharray="1 1" />
             <circle cx="50" cy="50" r="30" />
             <path d="M50,5 L50,95 M5,50 L95,50 M18,18 L82,82 M18,82 L82,18" />
-            {[...Array(12)].map((_, i) => (
-              <circle key={i} cx={50 + 35 * Math.cos((i * Math.PI) / 6)} cy={50 + 35 * Math.sin((i * Math.PI) / 6)} r="2" fill="currentColor" />
-            ))}
           </svg>
         </div>
 
-        {/* Asymmetrical Layout grid */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center py-12 md:py-0">
+        {/* Floating Tailoring Tools Graphics (Interactive & Premium) */}
+        {/* 1. Floating Golden Scissors */}
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, 8, -8, 0],
+          }}
+          transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut' }}
+          className="absolute left-[8%] top-[25%] text-gold-500/10 hidden md:block"
+        >
+          <svg viewBox="0 0 64 64" fill="none" className="w-32 h-32 stroke-current" strokeWidth="1.2">
+            <path d="M 12 48 C 9 48, 9 43, 12 41 C 15 39, 18 43, 18 46 C 18 49, 15 49, 12 48 Z M 17 43 L 32 32 L 52 14" />
+            <path d="M 12 16 C 9 16, 9 21, 12 23 C 15 25, 18 21, 18 18 C 18 15, 15 15, 12 16 Z M 17 21 L 32 32 L 52 50" />
+            <circle cx="32" cy="32" r="2" fill="currentColor" />
+          </svg>
+        </motion.div>
+
+        {/* 2. Floating Sewing Needle */}
+        <motion.div
+          animate={{
+            y: [0, 18, 0],
+            x: [0, -6, 0],
+            rotate: [15, 20, 15],
+          }}
+          transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
+          className="absolute right-[10%] top-[20%] text-gold-500/10 hidden md:block"
+        >
+          <svg viewBox="0 0 64 64" fill="none" className="w-28 h-28 stroke-current" strokeWidth="1.5">
+            <line x1="48" y1="12" x2="20" y2="40" />
+            <ellipse cx="45" cy="15" rx="1" ry="2.5" transform="rotate(45 45 15)" fill="currentColor" />
+          </svg>
+        </motion.div>
+
+        {/* 3. Floating Spool of Thread */}
+        <motion.div
+          animate={{
+            y: [0, -12, 0],
+            rotate: [0, 360],
+          }}
+          transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
+          className="absolute left-[10%] bottom-[20%] text-gold-500/10 hidden md:block"
+        >
+          <svg viewBox="0 0 32 32" fill="none" className="w-24 h-24 stroke-current" strokeWidth="1.2">
+            <path d="M8 6 H24 L22 9 H10 Z" />
+            <path d="M8 26 H24 L22 23 H10 Z" />
+            <line x1="11" y1="9" x2="11" y2="23" />
+            <line x1="21" y1="9" x2="21" y2="23" />
+            <line x1="11" y1="12" x2="21" y2="12" />
+            <line x1="11" y1="15" x2="21" y2="15" />
+            <line x1="11" y1="18" x2="21" y2="18" />
+            <line x1="11" y1="21" x2="21" y2="21" />
+          </svg>
+        </motion.div>
+
+        {/* Centered Hero Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8 py-16 md:py-0">
           
-          {/* Left Text Column */}
-          <div className="md:col-span-7 text-left space-y-8 flex flex-col justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="space-y-4"
-            >
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-pink-200 font-semibold bg-gold-500/10 px-4 py-1.5 rounded-full border border-gold-500/20 inline-block">
-                {t('hero.title')}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="space-y-6"
+          >
+            {/* Elegant Crown Badge */}
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-purple-900/30 text-gold-500">
+              <span className="text-[10px] uppercase tracking-[0.35em] font-semibold flex items-center gap-1.5">
+                ✦ {t('hero.title')} ✦
               </span>
-              
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gold-100 font-light tracking-wide leading-[1.1]">
-                {language === 'ta' ? (
-                  <>
-                    ஒவ்வொரு தருணத்திற்கும் <br />
-                    <span className="italic text-gold-500 font-medium">கச்சிதமான தையல்</span>
-                  </>
-                ) : (
-                  <>
-                    Perfect Stitching <br />
-                    <span className="italic text-gold-500 font-medium">for Every Occasion</span>
-                  </>
-                )}
-              </h1>
-              
-              <p className="text-sm md:text-base text-pink-100/70 font-sans max-w-xl font-light tracking-wide leading-relaxed">
-                {t('hero.subtitle')}
-              </p>
-            </motion.div>
+            </div>
+            
+            {/* Elegant Mixed Serif Typography */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-gold-100 font-light tracking-wide leading-[1.08]">
+              {language === 'ta' ? (
+                <>
+                  பிரத்யேக <span className="italic text-gold-500 font-normal font-serif">தையல்</span> & <br />
+                  ஆரி <span className="text-gold-100 font-light font-serif">எம்பிராய்டரி</span>
+                </>
+              ) : (
+                <>
+                  Bespoke <span className="italic text-gold-500 font-normal font-serif">Tailoring</span> & <br />
+                  Intricate <span className="text-gold-100 font-light font-serif">Embroidery</span>
+                </>
+              )}
+            </h1>
 
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pt-2"
+            {/* Custom Separator needle */}
+            <div className="flex justify-center items-center gap-4 py-2 max-w-xs mx-auto">
+              <div className="h-[1px] bg-gradient-to-r from-transparent to-gold-500/50 flex-1" />
+              <svg viewBox="0 0 24 24" className="w-6 h-6 text-gold-500 animate-pulse shrink-0 fill-none stroke-current" strokeWidth="1.2">
+                <line x1="2" y1="22" x2="18" y2="6" strokeLinecap="round" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+              </svg>
+              <div className="h-[1px] bg-gradient-to-l from-transparent to-gold-500/50 flex-1" />
+            </div>
+            
+            <p className="text-sm md:text-lg text-pink-100/75 font-sans max-w-2xl mx-auto font-light tracking-wide leading-relaxed">
+              {t('hero.subtitle')}
+            </p>
+          </motion.div>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="flex flex-col sm:flex-row justify-center items-center gap-5 pt-4"
+          >
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto px-10 py-4 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_30px_rgba(212,175,55,0.4)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer text-center"
             >
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-500 text-purple-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-[0_8px_25px_rgba(212,175,55,0.3)] hover:bg-pink-100 hover:text-purple-900 cursor-pointer text-center"
-              >
-                {t('hero.bookBtn')}
-              </Link>
-              <Link
-                href="/gallery"
-                className="w-full sm:w-auto px-8 py-4 rounded-full border border-gold-500/40 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer text-center"
-              >
-                {t('hero.viewDesigns')}
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Right Image Frame Column */}
-          <div className="md:col-span-5 flex justify-center items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
-              className="relative w-full max-w-sm aspect-[4/5]"
+              {t('hero.bookBtn')}
+            </Link>
+            <Link
+              href="/gallery"
+              className="w-full sm:w-auto px-10 py-4 rounded-full border-2 border-gold-500/50 text-gold-500 hover:text-purple-950 hover:bg-gold-500 font-bold uppercase tracking-widest text-xs transition-all duration-300 cursor-pointer text-center"
             >
-              {/* Golden ambient blur under the arch */}
-              <div className="absolute inset-0 bg-gold-500/10 blur-[80px] rounded-full pointer-events-none" />
-
-              {/* Luxury Arched Window Frame */}
-              <div className="relative w-full h-full rounded-t-full overflow-hidden border-2 border-gold-500/30 shadow-[0_20px_50px_rgba(29,10,36,0.6)]">
-                <img
-                  src="/fabric-cutting.png"
-                  alt="Luxury Tailoring Exhibit"
-                  className="w-full h-full object-cover transition-transform duration-[8000ms] hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-950 via-purple-950/20 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Overlapping Bridal Sample Frame */}
-              <motion.div
-                initial={{ opacity: 0, x: -40, y: 40 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 0.7, duration: 1, ease: 'easeOut' }}
-                className="absolute -bottom-6 -left-8 w-1/2 aspect-square rounded-3xl overflow-hidden border-2 border-gold-500/20 shadow-2xl hidden sm:block bg-purple-950"
-              >
-                <img
-                  src="/embroidery-zoom.png"
-                  alt="Bridal Blouse Workmanship"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-
-              {/* Decorative embroidery thread loops outline */}
-              <div className="absolute -right-8 -bottom-8 w-24 h-24 text-gold-500/20 pointer-events-none hidden sm:block">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full stroke-current" strokeWidth="1.5">
-                  <path d="M10,10 C40,30 20,70 90,90 C80,60 60,30 30,10" strokeDasharray="3 3" />
-                </svg>
-              </div>
-            </motion.div>
-          </div>
-
+              {t('hero.viewDesigns')}
+            </Link>
+          </motion.div>
         </div>
 
         {/* Stitching divider line at the bottom */}

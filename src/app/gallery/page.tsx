@@ -22,6 +22,7 @@ export default function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const galleryItems: GalleryItem[] = [
+    // 1. Bridal Wear
     {
       id: 1,
       image: '/bridal-showcase.png',
@@ -32,6 +33,24 @@ export default function Gallery() {
     },
     {
       id: 2,
+      image: '/bridal-red.png',
+      category: 'bridal',
+      titleEn: 'Crimson Red Hand-Embroidered Blouse',
+      titleTa: 'சிவப்பு பட்டு ஆரி எம்பிராய்டரி பிளவுஸ்',
+      heightClass: 'masonry-item',
+    },
+    {
+      id: 3,
+      image: '/bridal-green.png',
+      category: 'bridal',
+      titleEn: 'Emerald Peacock Silk Blouse',
+      titleTa: 'மரகத பச்சை மயில்கண் ஆரி பிளவுஸ்',
+      heightClass: 'masonry-item',
+    },
+
+    // 2. Designer Blouses
+    {
+      id: 4,
       image: '/designer-blouse-alt.png',
       category: 'designer',
       titleEn: 'Modern Halter Cut Blouse',
@@ -39,7 +58,25 @@ export default function Gallery() {
       heightClass: 'masonry-item',
     },
     {
-      id: 3,
+      id: 5,
+      image: '/designer-velvet.png',
+      category: 'designer',
+      titleEn: 'Luxury High-Neck Velvet Blouse',
+      titleTa: 'வெல்வெட் காலர் நெக் டிசைனர் பிளவுஸ்',
+      heightClass: 'masonry-item',
+    },
+    {
+      id: 6,
+      image: '/designer-halter.png',
+      category: 'designer',
+      titleEn: 'Champagne Gold Minimalist Blouse',
+      titleTa: 'தங்க நிற சில்க் கட்வொர்க் பிளவுஸ்',
+      heightClass: 'masonry-item',
+    },
+
+    // 3. Chudithars
+    {
+      id: 7,
       image: '/chudithar-stitching.png',
       category: 'chudithar',
       titleEn: 'Pastel Green Kurti Suite',
@@ -47,15 +84,25 @@ export default function Gallery() {
       heightClass: 'masonry-item',
     },
     {
-      id: 4,
-      image: '/kids-dress-alt.png',
-      category: 'kids',
-      titleEn: 'Kids Designer Frock',
-      titleTa: 'குழந்தைகள் பட்டு ஃபிராக்',
+      id: 8,
+      image: '/chudithar-silk.png',
+      category: 'chudithar',
+      titleEn: 'Royal Blue Anarkali Silk kameez',
+      titleTa: 'நீல நிற சில்க் அனார்கலி சுடிதார்',
       heightClass: 'masonry-item',
     },
     {
-      id: 5,
+      id: 9,
+      image: '/chudithar.png',
+      category: 'chudithar',
+      titleEn: 'Traditional Printed Salwar Kameez',
+      titleTa: 'பாரம்பரிய காட்டன் சல்வார் கமீஸ்',
+      heightClass: 'masonry-item',
+    },
+
+    // 4. Kids Wear
+    {
+      id: 10,
       image: '/pattu-pavadai-alt.png',
       category: 'kids',
       titleEn: 'Traditional Kids Silk Pavadai',
@@ -63,11 +110,19 @@ export default function Gallery() {
       heightClass: 'masonry-item',
     },
     {
-      id: 6,
-      image: '/alteration-alt.png',
-      category: 'designer',
-      titleEn: 'Bespoke Custom Alterations',
-      titleTa: 'பிரத்யேக ஆல்டரேஷன் தையல்',
+      id: 11,
+      image: '/kids-dress-alt.png',
+      category: 'kids',
+      titleEn: 'Kids Designer Pastel Frock',
+      titleTa: 'குழந்தைகள் பிரத்யேக டிசைனர் ஃபிராக்',
+      heightClass: 'masonry-item',
+    },
+    {
+      id: 12,
+      image: '/pattu-pavadai.png',
+      category: 'kids',
+      titleEn: 'Royal Zari Kids Langa Frock',
+      titleTa: 'ஜரிகை வேலைப்பாடு சிறுவர் பட்டு பாவாடை',
       heightClass: 'masonry-item',
     },
   ];
